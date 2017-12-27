@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
 import TabBarButton from './components/TabBarButton';
+import Timeline from './components/Timeline';
+import Search from './components/Search';
+import Notifications from './components/Notifications';
+import Messages from './components/Messages';
 import styles from './styles/app.style';
 import colors from './styles/colors.style';
 
 const TABS = [
     {
         icon: 'ios-home',
-        component: false
+        component: Timeline
     },
     {
         icon: 'ios-search',
-        component: false
+        component: Search
     },
     {
         icon: 'ios-notifications',
-        component: false
+        component: Notifications
     },
     {
         icon: 'ios-mail',
-        component: false
+        component: Messages
     }
 ];
 
@@ -30,6 +34,12 @@ export default class App extends Component {
         this.state = { activeTab: 0 };
     }
 
+    _onPressTabButton (index) {
+        return () => {
+            this.setState({ activeTab: index });
+        }
+    }
+
     get tabBar () {
         const buttons = TABS.map((tab, index) => {
             return (
@@ -37,6 +47,7 @@ export default class App extends Component {
                   key={`tab-button-${index}`}
                   active={index === this.state.activeTab}
                   icon={tab.icon}
+                  onPress={this._onPressTabButton(index)}
                 />
             );
         });
@@ -48,10 +59,14 @@ export default class App extends Component {
     }
 
     render() {
+        const ActiveComponent = TABS[this.state.activeTab].component;
+
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor={colors.darkBackground} />
-                <View style={styles.listContainer} />
+                <View style={styles.contentContainer}>
+                    <ActiveComponent />
+                </View>
                 { this.tabBar }
             </View>
         );
