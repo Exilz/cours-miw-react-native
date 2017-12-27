@@ -1,9 +1,8 @@
 # Cours MIW
 
-### Première étape
+### Étape 2
 
-* Fondations de l'application
-* Fichier racine + styles
-* Premier composant : `TabBarButton` + styles
+* Les boutons de navigation fonctionnent
+* Création de 4 composants vides : `Timeline`, `Search`, `Notifications`, `Messages`
 
-![](https://i.imgur.com/By7VK6el.png)
+![](https://thumbs.gfycat.com/AdorableSlimIrishsetter-size_restricted.gif)
