@@ -5,7 +5,7 @@ export default StyleSheet.create({
     container: {
         flex: 1
     },
-    listContainer: {
+    contentContainer: {
         flex: 1,
         backgroundColor: colors.darkBackground
     },
