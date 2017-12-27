@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, ScrollView } from 'react-native';
+import Tweet from './Tweet';
 
 export default class Timeline extends Component {
 
     render () {
         return (
-            <Text>Timeline</Text>
+            <ScrollView>
+                <Tweet />                
+            </ScrollView>
         );
     }
 }
