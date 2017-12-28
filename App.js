@@ -8,6 +8,8 @@ import Messages from './components/Messages';
 import styles from './styles/app.style';
 import colors from './styles/colors.style';
 
+// Entrées de la barre de navigation en bas de l'appli.
+// On boucle dessus pour rendre chaque bouton.
 const TABS = [
     {
         icon: 'ios-home',
@@ -31,16 +33,24 @@ export default class App extends Component {
 
     constructor (props) {
         super(props);
+        // Par défaut, le bouton actif est le premier (index 0)
         this.state = { activeTab: 0 };
     }
 
     _onPressTabButton (index) {
+        // On crée une fonction qu'on passe en prop (onPress) à TabBarButton.
+        // Lors de l'appui, on va changer le bouton actif dans le state pour y
+        // mettre l'index du bouton qui vient d'être appuyé.
         return () => {
             this.setState({ activeTab: index });
         }
     }
 
     get tabBar () {
+        // On boucle sur les boutons définis en haut du fichier et
+        // on rend le composant TabBarButton pour chaque itération.
+        // La prop active est à true lorsque l'index actuel de la boucle
+        // correspond au bouton actuellement actif stocké dans le state.
         const buttons = TABS.map((tab, index) => {
             return (
                 <TabBarButton
@@ -59,12 +69,16 @@ export default class App extends Component {
     }
 
     render() {
+        // On récupère le composant qui doit être rendu en fonction
+        // du bouton actuellement actif dans la barre de navigation.
         const ActiveComponent = TABS[this.state.activeTab].component;
 
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor={colors.darkBackground} />
                 <View style={styles.contentContainer}>
+                    {/* On peut ensuite le rendre de cette manière,
+                        comme un composant "normal" */}
                     <ActiveComponent />
                 </View>
                 { this.tabBar }
