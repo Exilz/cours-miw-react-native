@@ -1,9 +1,10 @@
 # Cours MIW
 
-### Étape 3
+### Étape 4
 
-* Ajout du composant `Tweet` avec de la donnée "en dur"
-* Ajoute du composant `TweetButtons` (non fonctionnels pour le moment)
-* Le tweet est rendu dans le composant `Timeline` (premier bouton de navigation)
+* Le composant `Tweet` n'utilise plus des valeurs en dur mais plutôt ses props
+* Requête réseau visant à récupérer les tweets en ligne
+* Affichage d'un chargement ou d'une erreur au fil de la requête
+* Rendu des tweets dans une `ScrollView`
 
-![](https://i.imgur.com/54ekEhy.png)
+![](https://thumbs.gfycat.com/PastelHelpfulAllosaurus-size_restricted.gif)
