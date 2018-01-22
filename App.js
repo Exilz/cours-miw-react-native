@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, StatusBar } from 'react-native';
+import Drawer from 'react-native-drawer';
+import SideMenu from './components/SideMenu';
 import TabBarButton from './components/TabBarButton';
 import Timeline from './components/Timeline';
 import Search from './components/Search';
@@ -74,15 +76,26 @@ export default class App extends Component {
         const ActiveComponent = TABS[this.state.activeTab].component;
 
         return (
-            <View style={styles.container}>
-                <StatusBar backgroundColor={colors.darkBackground} />
-                <View style={styles.contentContainer}>
-                    {/* On peut ensuite le rendre de cette manière,
-                        comme un composant "normal" */}
-                    <ActiveComponent />
+            <Drawer
+              type={'displace'}
+              panOpenMask={0.1}
+              openDrawerOffset={0.2}
+              tapToClose={true}
+              content={<SideMenu />}
+              negotiatePan={true}
+              panCloseMask={0.2}
+            >
+
+                <View style={styles.container}>
+                    <StatusBar backgroundColor={colors.darkBackground} />
+                    <View style={styles.contentContainer}>
+                        {/* On peut ensuite le rendre de cette manière,
+                            comme un composant "normal" */}
+                        <ActiveComponent />
+                    </View>
+                    { this.tabBar }
                 </View>
-                { this.tabBar }
-            </View>
+            </Drawer>
         );
     }
 }
