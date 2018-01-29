@@ -1,9 +1,8 @@
 # Cours MIW
 
-### Étape 5
+### Étape 7
 
-* Ajout d'un routeur de la navigation
-* Création de deux composants : `HeaderAvatar` et `NewTweetButton` rendus à droite et à gauche de la barre de navigation
-* Navigation vers une vue `NewTweet` au clic sur le bouton en haut à droite
+* Contenu de la vue `NewTweet` : un `TextInput` qui active / désactive un bouton en fonction de son contenu.
 
-![](https://media.giphy.com/media/l0HUqsBLidf7iA3HG/giphy.gif)
+![](https://puu.sh/zcfSN/1c74214640.png)
+![](https://puu.sh/zcfUI/d16ab058b5.png)
