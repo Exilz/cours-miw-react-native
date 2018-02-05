@@ -30,5 +30,12 @@ export default StyleSheet.create({
         fontSize: 15,
         marginRight: 10,
         color: 'white'
+    },
+    smallButton: {
+        marginRight: 10
+    },
+    smallButtonIcon: {
+        fontSize: 20,
+        color: colors.support
     }
 });
